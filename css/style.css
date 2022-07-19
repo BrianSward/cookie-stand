@@ -12,8 +12,6 @@ p{
 
 body{
   background-color:rgb(255, 254, 206);
-  max-width: 60%;
-  margin: auto;
   font-family: Georgia, 'Times New Roman', Times, serif;
   color:rgb(172, 23, 23);
 }
@@ -44,23 +42,20 @@ h2{
 
 /* for boxes for styling */
 
-body > *{
-margin: 1px;
-border: 1px;
-border-color: crimson;
-border-style: solid;
+table{
+  width: 50px;
 }
 
-main > *{
+thead{
+  color:black;
+  font-style:italic;
+}
+
+td, tr, th {
+  vertical-align: middle;
   margin: 1px;
   border: 1px;
-  border-color: rgb(94, 255, 0);
-  border-style: double;
-  width: 100%;
-  max-width: 1000px;
+  border-color: rgb(94, 255, 0); 
+  border-style: solid;
+  padding: 5px;
 }
-
-table {
-  width: 100%;
-}
-
