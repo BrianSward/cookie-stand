@@ -54,6 +54,13 @@ border-style: solid;
 main > *{
   margin: 1px;
   border: 1px;
-  border-color: crimson;
-  border-style: solid;
+  border-color: rgb(94, 255, 0);
+  border-style: double;
+  width: 100%;
+  max-width: 1000px;
 }
+
+table {
+  width: 100%;
+}
+
