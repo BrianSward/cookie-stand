@@ -67,25 +67,20 @@ function makeHeader() {
 }
 makeHeader();
 
-
 let seattle = new City('Seattle', 23, 65, 6.3);
 let tokyo = new City('Tokyo', 3, 24, 1.2);
 let dubai = new City('Dubai', 11, 38, 3.7);
 let paris = new City('Paris', 20, 38, 2.3);
 let lima = new City('Lima', 2, 16, 4.6);
 
-seattle.getCust();
-seattle.render();
-tokyo.getCust();
-tokyo.render();
-dubai.getCust();
-dubai.render();
-paris.getCust();
-paris.render();
-lima.getCust();
-lima.render();
-
-// console.log(seattle);
+function renderSalmons(){
+  for(let i = 0; i < hurrayArray.length; i++){
+    let currentCity = hurrayArray[i];
+    currentCity.getCust();
+    currentCity.render();
+  }
+}
+renderSalmons();
 
 function makeFooter(){
   let foots = document.createElement('tfoot');
@@ -102,16 +97,15 @@ function makeFooter(){
   let totalTotal = 0;
 
   for (let i = 0; i < hours.length; i++) {
-    //let currentCity = hurrayArray[i];
+
     let hourlyTotal = 0;
-    //let currentDataArray = currentCity.cookArray;
+
     for (let j = 0; j < hurrayArray.length ; j++){
       hourlyTotal += hurrayArray[j].cookArray[i];
     }
     totalsArray.push(hourlyTotal);
     totalTotal += hourlyTotal;
   }
-  console.log(totalTotal);
   for (let i = 0; i < totalsArray.length;i++){
     let ftElem = document.createElement('td');
     ftElem.textContent = totalsArray[i];
