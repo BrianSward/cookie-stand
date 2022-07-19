@@ -37,4 +37,23 @@ ul{
   font-family:Verdana, Geneva, Tahoma, sans-serif;
   color: hsl(0, 0%, 20%)
 }
- 
+
+h2{
+  display: inline;
+}
+
+/* for boxes for styling */
+
+body > *{
+margin: 1px;
+border: 1px;
+border-color: crimson;
+border-style: solid;
+}
+
+main > *{
+  margin: 1px;
+  border: 1px;
+  border-color: crimson;
+  border-style: solid;
+}

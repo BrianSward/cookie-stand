@@ -29,11 +29,11 @@ let Seattle = {
     let totalCookies = 0;
     for (let i=0; i <hours.length; i++){
       Seattle.getCust();
-      totalCookies += this.intCust;
+      totalCookies += Math.ceil(this.intCust*this.avgCookie);
       let cookArraySea = [];
-      cookArraySea.push(this.intCust);
+      cookArraySea.push(Math.ceil(this.intCust*this.avgCookie));
       let liElem = document.createElement('li');
-      liElem.textContent = `${hours[i]}: ${this.intCust} cookies` ;
+      liElem.textContent = `${hours[i]}: ${Math.ceil(this.intCust*this.avgCookie)} cookies` ;
       ulElem.appendChild(liElem);
       if (i === hours.length-1){
         let lastElem = document.createElement('li');
@@ -65,11 +65,11 @@ let Tokyo = {
     let totalCookies = 0;
     for (let i=0; i <hours.length; i++){
       Tokyo.getCust();
-      totalCookies += this.intCust;
+      totalCookies += Math.ceil(this.intCust*this.avgCookie);
       let cookArrayTok = [];
-      cookArrayTok.push(this.intCust);
+      cookArrayTok.push(Math.ceil(this.intCust*this.avgCookie));
       let liElem = document.createElement('li');
-      liElem.textContent = `${hours[i]}: ${this.intCust} cookies` ;
+      liElem.textContent = `${hours[i]}: ${Math.ceil(this.intCust*this.avgCookie)} cookies` ;
       ulElem.appendChild(liElem);
       if (i === hours.length-1){
         let lastElem = document.createElement('li');
@@ -101,11 +101,11 @@ let Dubai = {
     let totalCookies = 0;
     for (let i=0; i <hours.length; i++){
       Dubai.getCust();
-      totalCookies += this.intCust;
+      totalCookies += Math.ceil(this.intCust*this.avgCookie);
       let cookArrayDub = [];
-      cookArrayDub.push(this.intCust);
+      cookArrayDub.push(Math.ceil(this.intCust*this.avgCookie));
       let liElem = document.createElement('li');
-      liElem.textContent = `${hours[i]}: ${this.intCust} cookies` ;
+      liElem.textContent = `${hours[i]}: ${Math.ceil(this.intCust*this.avgCookie)} cookies` ;
       ulElem.appendChild(liElem);
       if (i === hours.length-1){
         let lastElem = document.createElement('li');
@@ -137,11 +137,11 @@ let Paris = {
     let totalCookies = 0;
     for (let i=0; i <hours.length; i++){
       Paris.getCust();
-      totalCookies += this.intCust;
+      totalCookies += Math.ceil(this.intCust*this.avgCookie);
       let cookArrayPar = [];
-      cookArrayPar.push(this.intCust);
+      cookArrayPar.push(Math.ceil(this.intCust*this.avgCookie));
       let liElem = document.createElement('li');
-      liElem.textContent = `${hours[i]}: ${this.intCust} cookies` ;
+      liElem.textContent = `${hours[i]}: ${Math.ceil(this.intCust*this.avgCookie)} cookies` ;
       ulElem.appendChild(liElem);
       if (i === hours.length-1){
         let lastElem = document.createElement('li');
@@ -173,11 +173,11 @@ let Lima = {
     let totalCookies = 0;
     for (let i=0; i <hours.length; i++){
       Lima.getCust();
-      totalCookies += this.intCust;
+      totalCookies += Math.ceil(this.intCust*this.avgCookie);
       let cookArrayLim = [];
-      cookArrayLim.push(this.intCust);
+      cookArrayLim.push(Math.ceil(this.intCust*this.avgCookie));
       let liElem = document.createElement('li');
-      liElem.textContent = `${hours[i]}: ${this.intCust} cookies` ;
+      liElem.textContent = `${hours[i]}: ${Math.ceil(this.intCust*this.avgCookie)} cookies` ;
       ulElem.appendChild(liElem);
       if (i === hours.length-1){
         let lastElem = document.createElement('li');
