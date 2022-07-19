@@ -40,8 +40,6 @@ h2{
   display: inline;
 }
 
-/* for boxes for styling */
-
 table{
   width: 50px;
 }
@@ -52,10 +50,13 @@ thead{
 }
 
 td, tr, th {
-  vertical-align: middle;
   margin: 1px;
   border: 1px;
-  border-color: rgb(94, 255, 0); 
+  border-color: rgb(181, 223, 157); 
   border-style: solid;
   padding: 5px;
+}
+
+tfoot > * {
+  color: black;
 }

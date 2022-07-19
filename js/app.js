@@ -16,8 +16,9 @@ function City(cityName, minCust, maxCust, avgCookie) {
   this.maxCust = maxCust;
   this.avgCookie = avgCookie;
   this.intCust = 0;
+  this.cookArray = [];
 
-  hurrayArray.push.this;
+  hurrayArray.push(this);
 }
 
 City.prototype.getCust = function () {
@@ -30,13 +31,12 @@ City.prototype.render = function () {
   salesTable.appendChild(dataRow);
   dataRow.textContent = this.cityName;
   let totalCookies = 0;
-  let cookArray = [];
   for (let i = 0; i < hours.length; i++) {
     this.getCust();
     totalCookies += Math.ceil(this.intCust * this.avgCookie);
-    cookArray.push(Math.ceil(this.intCust * this.avgCookie));
+    this.cookArray.push(Math.ceil(this.intCust * this.avgCookie));
     let tdElem = document.createElement('td');
-    tdElem.textContent = cookArray[i];
+    tdElem.textContent = this.cookArray[i];
     dataRow.appendChild(tdElem);
   }
   let lastElem = document.createElement('td');
@@ -51,7 +51,7 @@ function makeHeader() {
   let headerRow = document.createElement('tr');
   tableHead.appendChild(headerRow);
 
-  let thCity = document.createElement('th');
+  let thCity = document.createElement('thead');
   thCity.textContent = 'City';
   headerRow.appendChild(thCity);
 
@@ -66,6 +66,7 @@ function makeHeader() {
   headerRow.appendChild(dailyLocaTot);
 }
 makeHeader();
+
 
 let seattle = new City('Seattle', 23, 65, 6.3);
 let tokyo = new City('Tokyo', 3, 24, 1.2);
@@ -83,3 +84,42 @@ paris.getCust();
 paris.render();
 lima.getCust();
 lima.render();
+
+// console.log(seattle);
+
+function makeFooter(){
+  let foots = document.createElement('tfoot');
+  salesTable.appendChild(foots);
+
+  let footerRow = document.createElement('tr');
+  foots.appendChild(footerRow);
+
+  let totalCity = document.createElement('thead');
+  totalCity.textContent = 'Totals';
+  footerRow.appendChild(totalCity);
+
+  let totalsArray = [];
+  let totalTotal = 0;
+
+  for (let i = 0; i < hours.length; i++) {
+    //let currentCity = hurrayArray[i];
+    let hourlyTotal = 0;
+    //let currentDataArray = currentCity.cookArray;
+    for (let j = 0; j < hurrayArray.length ; j++){
+      hourlyTotal += hurrayArray[j].cookArray[i];
+    }
+    totalsArray.push(hourlyTotal);
+    totalTotal += hourlyTotal;
+  }
+  console.log(totalTotal);
+  for (let i = 0; i < totalsArray.length;i++){
+    let ftElem = document.createElement('td');
+    ftElem.textContent = totalsArray[i];
+    footerRow.appendChild(ftElem);
+  }
+  let finElem = document.createElement('td');
+  finElem.textContent = totalTotal;
+  footerRow.appendChild(finElem);
+}
+
+makeFooter();
