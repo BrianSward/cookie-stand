@@ -10,9 +10,21 @@
   <header>
     <h1>Cookie Sales</h1>
   </header>
-
   <main>
     <h2><a href="index.html">Salmon Cookies Main Page</a></h2>
+    <br>
+      <form id="addCity">
+        <legend>The Deets</legend>
+        <label>City Name</label>
+        <input id="cityName" name="cityName" type="text"/>
+        <label>Min Cust</label>
+        <input id="minCust" name="minCust" type="number"/>
+        <label>Max Cust</label>
+        <input id="maxCust" name="maxCust" type="number"/>
+        <label>Avg Cookie</label>
+        <input id="avgCookie" name="avgCookie" type="number"/>
+        <button type="submit">Submit</button>
+      </form>
     <br>
     <h2>Sales Data by City</h2>
     <section id="sales-data"></section>

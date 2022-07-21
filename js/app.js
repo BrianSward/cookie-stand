@@ -1,6 +1,7 @@
 'use strict';
 
 let salesTable = document.getElementById('sales-table');
+let newCity = document.getElementById('addCity');
 
 let hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
@@ -12,9 +13,9 @@ let hurrayArray = [];
 
 function City(cityName, minCust, maxCust, avgCookie) {
   this.cityName = cityName;
-  this.minCust = minCust;
-  this.maxCust = maxCust;
-  this.avgCookie = avgCookie;
+  this.minCust = +minCust;
+  this.maxCust = +maxCust;
+  this.avgCookie = +avgCookie;
   this.intCust = 0;
   this.cookArray = [];
 
@@ -26,11 +27,11 @@ City.prototype.getCust = function () {
   return this.intCust;
 };
 
+let totalCookies = 0;
 City.prototype.render = function () {
   let dataRow = document.createElement('tr');
   salesTable.appendChild(dataRow);
   dataRow.textContent = this.cityName;
-  let totalCookies = 0;
   for (let i = 0; i < hours.length; i++) {
     this.getCust();
     totalCookies += Math.ceil(this.intCust * this.avgCookie);
@@ -65,6 +66,7 @@ function makeHeader() {
   dailyLocaTot.textContent = 'Daily Location Total';
   headerRow.appendChild(dailyLocaTot);
 }
+
 makeHeader();
 
 let seattle = new City('Seattle', 23, 65, 6.3);
@@ -80,6 +82,7 @@ function renderSalmons(){
     currentCity.render();
   }
 }
+
 renderSalmons();
 
 function makeFooter(){
@@ -89,7 +92,7 @@ function makeFooter(){
   let footerRow = document.createElement('tr');
   foots.appendChild(footerRow);
 
-  let totalCity = document.createElement('thead');
+  let totalCity = document.createElement('td');
   totalCity.textContent = 'Totals';
   footerRow.appendChild(totalCity);
 
@@ -117,3 +120,18 @@ function makeFooter(){
 }
 
 makeFooter();
+
+newCity.addEventListener('submit',
+  function (event) {
+    event.preventDefault();
+    document.getElementById('sales-table').deleteTFoot();
+    let cityName = event.target.cityName.value;
+    let minCust = parseInt(event.target.minCust.value);
+    let maxCust = parseInt(event.target.maxCust.value);
+    let avgCookie = parseInt(event.target.avgCookie.value);
+    let newCity = new City(cityName, minCust, maxCust, avgCookie);
+    newCity.getCust();
+    newCity.render();
+    makeFooter();
+  }
+);
