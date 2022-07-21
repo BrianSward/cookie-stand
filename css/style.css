@@ -64,4 +64,5 @@ td, tr, th {
 
 tfoot > * {
   color: black;
+  font-style:italic;
 }
