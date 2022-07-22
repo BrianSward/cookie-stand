@@ -18,8 +18,6 @@ function City(cityName, minCust, maxCust, avgCookie) {
   this.avgCookie = +avgCookie;
   this.intCust = 0;
   this.cookArray = [];
-
-  hurrayArray.push(this);
 }
 
 City.prototype.getCust = function () {
@@ -69,13 +67,12 @@ function makeHeader() {
 
 makeHeader();
 
-let seattle = new City('Seattle', 23, 65, 6.3);
-let tokyo = new City('Tokyo', 3, 24, 1.2);
-let dubai = new City('Dubai', 11, 38, 3.7);
-let paris = new City('Paris', 20, 38, 2.3);
-let lima = new City('Lima', 2, 16, 4.6);
-
 function renderSalmons(){
+  hurrayArray.push(new City('Seattle', 23, 65, 6.3));
+  hurrayArray.push(new City('Tokyo', 3, 24, 1.2));
+  hurrayArray.push(new City('Dubai', 11, 38, 3.7));
+  hurrayArray.push(new City('Paris', 20, 38, 2.3));
+  hurrayArray.push(new City('Lima', 2, 16, 4.6));
   for(let i = 0; i < hurrayArray.length; i++){
     let currentCity = hurrayArray[i];
     currentCity.getCust();
