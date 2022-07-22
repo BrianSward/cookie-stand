@@ -31,7 +31,6 @@ City.prototype.render = function () {
   salesTable.appendChild(dataRow);
   dataRow.textContent = this.cityName;
   let totTot = 0;
-  
   for (let i = 0; i < hours.length; i++) {
     this.getCust();
     // totalCookies += Math.ceil(this.intCust * this.avgCookie);
@@ -65,12 +64,12 @@ function makeHeader() {
 
 makeHeader();
 
-let seattle = new City('Seattle', 23, 65, 6.3);
-let tokyo = new City('Tokyo', 3, 24, 1.2);
-let dubai = new City('Dubai', 11, 38, 3.7);
-let paris = new City('Paris', 20, 38, 2.3);
-let lima = new City('Lima', 2, 16, 4.6);
 function renderSalmons(){
+  new City('Seattle', 23, 65, 6.3);
+  new City('Tokyo', 3, 24, 1.2);
+  new City('Dubai', 11, 38, 3.7);
+  new City('Paris', 20, 38, 2.3);
+  new City('Lima', 2, 16, 4.6);
   for(let i = 0; i < hurrayArray.length; i++){
     let currentCity = hurrayArray[i];
     currentCity.getCust();
