@@ -8,7 +8,6 @@ let hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '
 function randoCust(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-
 let hurrayArray = [];
 
 function City(cityName, minCust, maxCust, avgCookie) {
@@ -18,48 +17,47 @@ function City(cityName, minCust, maxCust, avgCookie) {
   this.avgCookie = +avgCookie;
   this.intCust = 0;
   this.cookArray = [];
-}
 
+  hurrayArray.push(this);
+}
 City.prototype.getCust = function () {
   this.intCust = randoCust(this.minCust, this.maxCust);
   return this.intCust;
 };
 
 City.prototype.render = function () {
-  let totalCookies = 0;
+  // let totalCookies = 0;
   let dataRow = document.createElement('tr');
   salesTable.appendChild(dataRow);
   dataRow.textContent = this.cityName;
+  let totTot = 0;
+  
   for (let i = 0; i < hours.length; i++) {
     this.getCust();
-    totalCookies += Math.ceil(this.intCust * this.avgCookie);
+    // totalCookies += Math.ceil(this.intCust * this.avgCookie);
     this.cookArray.push(Math.ceil(this.intCust * this.avgCookie));
     let tdElem = document.createElement('td');
+    totTot += this.cookArray[i];
     tdElem.textContent = this.cookArray[i];
     dataRow.appendChild(tdElem);
   }
   let lastElem = document.createElement('td');
-  lastElem.textContent = totalCookies;
+  lastElem.textContent = totTot;
   dataRow.appendChild(lastElem);
 };
-
 function makeHeader() {
   let tableHead = document.createElement('thead');
   salesTable.appendChild(tableHead);
-
   let headerRow = document.createElement('tr');
   tableHead.appendChild(headerRow);
-
   let thCity = document.createElement('thead');
   thCity.textContent = 'City';
   headerRow.appendChild(thCity);
-
   for (let i = 0; i < hours.length; i++) {
     let thElem = document.createElement('th');
     thElem.textContent = hours[i];
     headerRow.appendChild(thElem);
   }
-
   let dailyLocaTot = document.createElement('th');
   dailyLocaTot.textContent = 'Daily Location Total';
   headerRow.appendChild(dailyLocaTot);
@@ -67,17 +65,12 @@ function makeHeader() {
 
 makeHeader();
 
-// let cities = [['Seattle', 23, 65, 6.3],['Tokyo', 3, 24, 1.2],[['Dubai', 11, 38, 3.7],['Paris', 20, 38, 2.3],['Lima', 2, 16, 4.6]; TRY TO GET ARRAY TO WORK
-
+let seattle = new City('Seattle', 23, 65, 6.3);
+let tokyo = new City('Tokyo', 3, 24, 1.2);
+let dubai = new City('Dubai', 11, 38, 3.7);
+let paris = new City('Paris', 20, 38, 2.3);
+let lima = new City('Lima', 2, 16, 4.6);
 function renderSalmons(){
-  // for (let j=0; j<cities.length;j++){     TRYING TO GET ARRAY TO WORK
-  //   hurrayArray.push(new City(cities[j]));
-  // }
-  hurrayArray.push(new City('Seattle', 23, 65, 6.3));
-  hurrayArray.push(new City('Tokyo', 3, 24, 1.2));
-  hurrayArray.push(new City('Dubai', 11, 38, 3.7));
-  hurrayArray.push(new City('Paris', 20, 38, 2.3));
-  hurrayArray.push(new City('Lima', 2, 16, 4.6));
   for(let i = 0; i < hurrayArray.length; i++){
     let currentCity = hurrayArray[i];
     currentCity.getCust();
@@ -90,7 +83,6 @@ renderSalmons();
 function makeFooter(){
   let foots = document.createElement('tfoot');
   salesTable.appendChild(foots);
-
   let footerRow = document.createElement('tr');
   foots.appendChild(footerRow);
 
@@ -100,11 +92,8 @@ function makeFooter(){
 
   let totalsArray = [];
   let totalTotal = 0;
-
   for (let i = 0; i < hours.length; i++) {
-
     let hourlyTotal = 0;
-
     for (let j = 0; j < hurrayArray.length ; j++){
       hourlyTotal += hurrayArray[j].cookArray[i];
     }
