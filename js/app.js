@@ -20,6 +20,7 @@ function City(cityName, minCust, maxCust, avgCookie) {
 
   hurrayArray.push(this);
 }
+
 City.prototype.getCust = function () {
   this.intCust = randoCust(this.minCust, this.maxCust);
   return this.intCust;
@@ -44,6 +45,7 @@ City.prototype.render = function () {
   lastElem.textContent = totTot;
   dataRow.appendChild(lastElem);
 };
+
 function makeHeader() {
   let tableHead = document.createElement('thead');
   salesTable.appendChild(tableHead);
