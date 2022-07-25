@@ -63,13 +63,14 @@ ol > li{
 .sales-page {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 
 /* SALES TABLE JAZZ BELOW */
 
 table{
-  width: 50px;
+  width: auto;
   margin-left: 15px;
 }
 
